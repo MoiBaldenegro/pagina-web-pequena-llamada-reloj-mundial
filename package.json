@@ -1,0 +1,9 @@
+{
+  "name": "reloj-mundial",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22.12" },
+  "scripts": { "test": "vitest run" },
+  "devDependencies": { "vitest": "5.1.1" }
+}

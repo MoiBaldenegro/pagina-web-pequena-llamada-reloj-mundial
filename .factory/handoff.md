@@ -1,5 +1,4 @@
 # Handoff
 
-- 2026-11-24 — Issue #2 (planificación) completado.
-- Hecho: `docs/architecture.md` (estructura, API de src/time.js, UI ES module, diseño de test de integración y workflow Pages, Vitest 5.1.1, Node 22 CI) y `docs/backlog.md` (B1–B3). Sin código de producto.
-- Siguiente paso: constructor toma B1 (package.json + src/time.js + tests unitarios), luego B2 (UI + integración), luego B3 (workflow + README).
+- 2026-11-24 — Issue #3 completado: package.json (vitest 5.1.1), lockfile, src/time.js, tests/time.test.js. `npm ci && npm test` en verde.
+- Siguiente paso: #4 UI (index.html, css/styles.css, js/main.js) + tests/site.test.js; luego #5 workflow Pages + README.
