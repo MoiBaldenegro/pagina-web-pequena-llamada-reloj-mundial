@@ -1,4 +1,4 @@
 # Handoff
 
-- 2026-11-24 — #4 hecho: UI real (index.html con 4 tarjetas, css/styles.css mobile-first, js/main.js con setInterval) y tests/site.test.js. Tests verdes.
-- Siguiente: nada pendiente del backlog; verificar el deploy de Pages (humano: Settings > Pages > Source: GitHub Actions).
+- 2026-11-24 — #8: no reproducible en local (tests verdes, artefacto OK). Sin cambios de código. Probable causa: Pages sin habilitar.
+- Siguiente: humano activa Settings > Pages > Source: GitHub Actions y relanza el workflow; si falla, aportar el log.

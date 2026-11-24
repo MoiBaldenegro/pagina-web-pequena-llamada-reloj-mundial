@@ -12,3 +12,4 @@ Agrega entradas cortas y fechadas; no borres las de otros salvo que ya no sean c
 - 2026-11-24 — #5 hecho: workflow Pages (actions checkout/setup-node v4, configure-pages v5, upload-pages-artifact v3, deploy-pages v4) y README. El deploy falla hasta que #4 cree index.html, css/ y js/.
 - 2026-11-24 — CI Pages (#6): el deploy fallaba porque index.html/css/js no existían (cp). Se añadieron placeholders mínimos; #4 debe reemplazarlos con la UI real.
 - 2026-11-24 — #4 hecho: UI real reemplaza los placeholders; tests/site.test.js sirve la raíz con node:http (puerto 0) y cierra en afterAll.
+- 2026-11-24 — #8 (CI Pages rojo en e32bc78): tests y artefacto OK en local con Node 22; sospecha: Pages no habilitado (Settings > Pages > Source: GitHub Actions). Requiere humano; sin cambios de código.
