@@ -7,3 +7,4 @@ Agrega entradas cortas y fechadas; no borres las de otros salvo que ya no sean c
 - 2026-11-24 — Ciudades/zonas fijas y en este orden: Ciudad de México (America/Mexico_City), Madrid (Europe/Madrid), Tokio (Asia/Tokyo), Nueva York (America/New_York).
 - 2026-11-24 — Formato: 24 h `HH:MM:SS` (hourCycle h23) + fecha corta en `es-ES`. UI en español. Los nombres de ciudad deben estar en el HTML estático (los busca el test de integración).
 - 2026-11-24 — Sin paso de build: se publica el sitio estático tal cual en GitHub Pages; `src/time.js` debe incluirse en el artefacto. Vitest con versión fija (sin ^/~). Node local: v26; CI: LTS (20/22).
+- 2026-11-24 — Vitest fijado en 5.1.1 (requiere Node ^22.12||^24||>=26) → CI usa Node 22, no 20. Estructura: index.html, css/styles.css, js/main.js, src/time.js, tests/. Artefacto de Pages = index.html, css/, js/, src/. Backlog en docs/backlog.md (3 issues; total 5).
