@@ -1,4 +1,4 @@
 # Handoff
 
-- 2026-11-24 — #8: no reproducible en local (tests verdes, artefacto OK). Sin cambios de código. Probable causa: Pages sin habilitar.
-- Siguiente: humano activa Settings > Pages > Source: GitHub Actions y relanza el workflow; si falla, aportar el log.
+- 2026-11-24 — #7 (planificador): revisado el producto contra docs/vision.md; código y tests completos (npm test verde). Backlog actualizado. Sin nuevos issues; productionReady=false porque #8 (deploy Pages en rojo) sigue abierto.
+- Siguiente: humano habilita Pages (Source: GitHub Actions) y relanza el workflow; con CI verde, un nuevo planificador marca productionReady.
