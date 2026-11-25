@@ -8,3 +8,6 @@ Total del proyecto: 5 issues (#1 descubrimiento, #2 planificación, B1–B3 cons
 
 ## Estado (2026-11-24, issue #7)
 B1–B3 completados; `npm test` verde (10 tests). Pendiente solo #8: CI/Pages en rojo, causa probable Pages sin habilitar (paso humano: Settings > Pages > Source: GitHub Actions). No se propone trabajo nuevo; al quedar #8 verde el producto cumple el MVP.
+
+## Estado (2026-11-25, issue #9)
+Pages habilitado por el humano; 10 tests verdes; README con instalar/correr/probar. MVP completo, sin bugs ni p0 → productionReady: true. Sin issues nuevos.
