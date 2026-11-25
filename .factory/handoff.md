@@ -1,4 +1,5 @@
 # Handoff
 
-- 2026-11-25 — #10: revisión; tests verdes (10), MVP completo. productionReady: true, sin nextIssues.
-- Siguiente: nada pendiente.
+- 2026-11-25 — #11: rediseño estilo TradingView. Heatmap central sin scroll (tiles coloreados por luz diurna), panel lateral con búsqueda/añadir/quitar sobre catálogo de 30 ciudades, selección en localStorage (`reloj-mundial:seleccion`). Tests verdes (14).
+- No verificado en navegador real (solo tests).
+- Siguiente: revisión visual en navegador / ajustes de responsive.

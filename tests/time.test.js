@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { CITIES, formatTime, formatDate, getCityTimes } from '../src/time.js';
+import { CITIES, CATALOG, DEFAULT_IDS, parseSelection, citiesFromIds, daylight, formatTime, formatDate, getCityTimes } from '../src/time.js';
 
 const winter = new Date('2024-01-15T12:00:00Z');
 const summer = new Date('2024-07-15T12:00:00Z');
@@ -51,5 +51,27 @@ describe('getCityTimes', () => {
   });
   it('sin argumento usa la fecha actual', () => {
     expect(getCityTimes()).toHaveLength(4);
+  });
+});
+
+describe('selección y catálogo', () => {
+  it('el catálogo incluye las 4 por defecto primero y sin ids repetidos', () => {
+    expect(CATALOG.slice(0, 4)).toEqual(CITIES);
+    expect(new Set(CATALOG.map((c) => c.id)).size).toBe(CATALOG.length);
+    expect(CATALOG.length).toBeGreaterThan(20);
+  });
+  it('parseSelection lee, filtra y cae al valor por defecto', () => {
+    expect(parseSelection('["tokyo","x","tokyo","madrid"]')).toEqual(['tokyo', 'madrid']);
+    expect(parseSelection('[]')).toEqual([]);
+    expect(parseSelection('basura')).toEqual(DEFAULT_IDS);
+    expect(parseSelection(null)).toEqual(DEFAULT_IDS);
+  });
+  it('citiesFromIds y getCityTimes con selección propia', () => {
+    const r = getCityTimes(winter, citiesFromIds(['londres', 'tokyo']));
+    expect(r.map((c) => c.time)).toEqual(['12:00:00', '21:00:00']);
+  });
+  it('daylight: mediodía brillante, medianoche oscuro', () => {
+    expect(daylight(new Date('2024-01-15T12:00:00Z'), 'UTC')).toBeCloseTo(1);
+    expect(daylight(new Date('2024-01-15T00:00:00Z'), 'UTC')).toBeCloseTo(0);
   });
 });

@@ -16,3 +16,4 @@ Agrega entradas cortas y fechadas; no borres las de otros salvo que ya no sean c
 - 2026-11-24 — #7: revisión de backlog vacío; MVP completo en código, solo falta #8 (Pages) para marcar productionReady.
 - 2026-11-25 — #9: revisión final; producto marcado productionReady (MVP completo, tests verdes, Pages habilitado).
 - 2026-11-25 — #10: revisión repetida; sigue productionReady, sin nextIssues.
+- 2026-11-25 — #11: src/time.js exporta CATALOG (30 ciudades; CITIES = 4 por defecto), parseSelection, citiesFromIds, daylight. main.js reconstruye tiles; el HTML estático conserva las 4 por defecto como pre-render. Clave localStorage: reloj-mundial:seleccion.

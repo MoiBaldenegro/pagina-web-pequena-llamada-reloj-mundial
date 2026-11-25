@@ -7,31 +7,46 @@
 <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+<div class="app">
+<header class="topbar">
+<h1>Reloj mundial <span class="badge">HEATMAP</span></h1>
+<div class="legend" aria-hidden="true"><span>Noche</span><i></i><span>Día</span></div>
+<button id="open-panel" class="btn primary" type="button" aria-expanded="false" aria-controls="panel">+ Relojes <span id="count">4</span></button>
+</header>
 <main>
-<h1>Reloj mundial</h1>
-<section class="grid">
-<article class="card" data-city="mexico-city">
+<section id="heatmap" class="heatmap" style="--cols:2;--rows:2" aria-label="Heatmap de relojes">
+<article class="tile" data-city="mexico-city" style="--d:.25">
 <h2>Ciudad de México</h2>
 <time class="clock">--:--:--</time>
 <p class="date"></p>
 </article>
-<article class="card" data-city="madrid">
+<article class="tile" data-city="madrid" style="--d:.25">
 <h2>Madrid</h2>
 <time class="clock">--:--:--</time>
 <p class="date"></p>
 </article>
-<article class="card" data-city="tokyo">
+<article class="tile" data-city="tokyo" style="--d:.25">
 <h2>Tokio</h2>
 <time class="clock">--:--:--</time>
 <p class="date"></p>
 </article>
-<article class="card" data-city="new-york">
+<article class="tile" data-city="new-york" style="--d:.25">
 <h2>Nueva York</h2>
 <time class="clock">--:--:--</time>
 <p class="date"></p>
 </article>
 </section>
+<p id="empty" class="empty" hidden>No hay relojes seleccionados. Abre «Relojes» para añadir.</p>
 </main>
+<aside id="panel" class="panel" hidden aria-label="Relojes disponibles">
+<div class="panel-head">
+<h2>Relojes disponibles</h2>
+<button id="close-panel" class="btn" type="button" aria-label="Cerrar">✕</button>
+</div>
+<input id="search" type="search" placeholder="Buscar ciudad…" autocomplete="off" aria-label="Buscar ciudad">
+<ul id="list" class="list"></ul>
+</aside>
+</div>
 <script type="module" src="js/main.js"></script>
 </body>
 </html>
