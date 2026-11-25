@@ -1,4 +1,4 @@
 # Handoff
 
-- 2026-11-25 — #12 (estilos-rotos): verificado en Chromium headless (desktop 1280x720 y móvil 390x780). Arreglos: `[hidden]{display:none!important}` (el mensaje vacío se mostraba siempre porque `display:grid` anulaba `hidden`) y `layout()` en js/main.js ahora elige columnas por proporción de tile (~1.6) y penaliza huecos (4 relojes → 2x2, sin hueco). Tests verdes.
-- Siguiente: nada pendiente obvio; probar panel/localStorage en navegador real si se quiere.
+- 2026-11-25 — #13 (mejora-de-estilos): sin cambios de código. El issue referencia "este system design" pero no se adjuntó ninguno. Estado: needs-human.
+- Siguiente: cuando la persona aporte el sistema de diseño (o autorice elegir uno), rediseñar css/styles.css (tokens en :root) y, si hace falta, clases en index.html/js/main.js; mantener tests verdes.
