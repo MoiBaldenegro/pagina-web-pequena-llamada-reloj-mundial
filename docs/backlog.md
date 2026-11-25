@@ -20,3 +20,6 @@ Revisión: 14 tests verdes; MVP + selector de ciudades (#11) y estilos MXVI (#13
 
 ## Estado (2026-11-25, issue #17)
 14 tests verdes; MVP completo. Lo siguiente ya está planeado en el issue abierto #18 (zona horaria); no se proponen issues nuevos. productionReady queda en false hasta cerrar #18.
+
+## Estado (2026-11-25, issue #19)
+16 tests verdes; #18 (zona horaria visible + búsqueda por zona) completado. MVP completo, README explica instalar/correr/probar, sin bugs ni p0 → productionReady: true. Sin issues nuevos.
