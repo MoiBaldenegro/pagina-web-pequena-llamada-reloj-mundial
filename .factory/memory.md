@@ -22,3 +22,4 @@ Agrega entradas cortas y fechadas; no borres las de otros salvo que ya no sean c
 - 2026-11-25 — #14: Pages sin artefacto; upload-pages-artifact v3→v4. Si persiste, revisar Settings>Pages>Source.
 - 2026-11-25 — #13 hecho: estilos con MXVI design system (https://moibaldenegro.github.io/mxvi-design-system/): fondo #070716, acento ciruela #B37AC2, esquinas rectas, Geist/Geist Mono/Geist Pixel en css/fonts/ (woff2 locales). Tiles: matiz índigo→ciruela según --d.
 - 2026-11-25 — #15: revisión de backlog vacío; 14 tests verdes, productionReady true, sin nextIssues. Nota: docs/vision.md aún lista el selector como fuera de alcance, pero #11 lo añadió.
+- 2026-11-25 — #16: layout a pantalla completa sin scroll: rail lateral (título gigante + botón) + heatmap de mosaicos con reloj enorme abajo-izquierda, número 01..04 (CSS counter) y barra de luz de día (--d). En vertical/móvil el rail pasa a barra superior. Todo CSS en css/styles.css; JS sin cambios.
