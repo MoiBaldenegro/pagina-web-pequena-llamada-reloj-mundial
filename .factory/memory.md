@@ -15,3 +15,4 @@ Agrega entradas cortas y fechadas; no borres las de otros salvo que ya no sean c
 - 2026-11-24 — #8 (CI Pages rojo en e32bc78): tests y artefacto OK en local con Node 22; sospecha: Pages no habilitado (Settings > Pages > Source: GitHub Actions). Requiere humano; sin cambios de código.
 - 2026-11-24 — #7: revisión de backlog vacío; MVP completo en código, solo falta #8 (Pages) para marcar productionReady.
 - 2026-11-25 — #9: revisión final; producto marcado productionReady (MVP completo, tests verdes, Pages habilitado).
+- 2026-11-25 — #10: revisión repetida; sigue productionReady, sin nextIssues.

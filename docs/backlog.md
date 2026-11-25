@@ -11,3 +11,6 @@ B1–B3 completados; `npm test` verde (10 tests). Pendiente solo #8: CI/Pages en
 
 ## Estado (2026-11-25, issue #9)
 Pages habilitado por el humano; 10 tests verdes; README con instalar/correr/probar. MVP completo, sin bugs ni p0 → productionReady: true. Sin issues nuevos.
+
+## Estado (2026-11-25, issue #10)
+Revisión repetida: 10 tests verdes, MVP completo, sin bugs ni p0. productionReady: true, sin issues nuevos.
