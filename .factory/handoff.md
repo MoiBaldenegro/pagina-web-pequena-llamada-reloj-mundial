@@ -1,3 +1,3 @@
 # Handoff
-- #16: rediseño atrevido con MXVI design system, sin scroll (overflow hidden, 100dvh). Solo CSS. Tests verdes; verificado con screenshots 1440x900 y 390x800.
-- Siguiente: nada pendiente.
+- #17: revisión de backlog. 14 tests verdes, sin bugs conocidos. Solo hay trabajo en #18 (zona horaria), ya planeado.
+- Siguiente: ejecutar #18; después revisar y marcar productionReady.
