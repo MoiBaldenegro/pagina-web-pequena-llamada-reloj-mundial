@@ -17,3 +17,4 @@ Agrega entradas cortas y fechadas; no borres las de otros salvo que ya no sean c
 - 2026-11-25 — #9: revisión final; producto marcado productionReady (MVP completo, tests verdes, Pages habilitado).
 - 2026-11-25 — #10: revisión repetida; sigue productionReady, sin nextIssues.
 - 2026-11-25 — #11: src/time.js exporta CATALOG (30 ciudades; CITIES = 4 por defecto), parseSelection, citiesFromIds, daylight. main.js reconstruye tiles; el HTML estático conserva las 4 por defecto como pre-render. Clave localStorage: reloj-mundial:seleccion.
+- 2026-11-25 — #12: bug de estilo: reglas display en CSS anulan el atributo hidden; se añadió [hidden]{display:none!important}. Layout del heatmap elige cols por proporción objetivo 1.6. Verificación visual: chromium --headless --screenshot con python -m http.server.

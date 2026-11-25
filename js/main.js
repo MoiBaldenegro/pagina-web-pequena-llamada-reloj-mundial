@@ -21,8 +21,15 @@ let selected = load();
 
 function layout() {
   const n = selected.length || 1;
-  const wide = heatmap.clientWidth / Math.max(heatmap.clientHeight, 1);
-  const cols = Math.min(n, Math.max(1, Math.round(Math.sqrt(n * wide))));
+  const w = heatmap.clientWidth || 1, h = Math.max(heatmap.clientHeight, 1);
+  let cols = 1, best = Infinity;
+  for (let c = 1; c <= n; c++) {
+    const r = Math.ceil(n / c);
+    const empty = c * r - n;
+    const ratio = (w / c) / (h / r);
+    const score = Math.abs(Math.log(ratio / 1.6)) + empty * 0.3;
+    if (score < best) { best = score; cols = c; }
+  }
   heatmap.style.setProperty('--cols', cols);
   heatmap.style.setProperty('--rows', Math.ceil(n / cols));
 }

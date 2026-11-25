@@ -1,4 +1,5 @@
 * { box-sizing: border-box; }
+[hidden] { display: none !important; }
 :root {
   --bg: #131722; --panel: #1e222d; --line: #2a2e39; --text: #d1d4dc; --muted: #787b86; --accent: #2962ff;
   --up: #089981; --down: #f23645;
