@@ -88,5 +88,51 @@ export function getCityTimes(date = new Date(), cities = CITIES) {
     time: formatTime(date, c.timeZone),
     date: formatDate(date, c.timeZone),
     daylight: daylight(date, c.timeZone),
+    offset: formatOffset(date, c.timeZone),
+    abbr: zoneAbbr(date, c.timeZone),
   }));
+}
+
+// Desfase UTC en minutos para una zona en un instante dado.
+export function offsetMinutes(date, timeZone) {
+  const p = new Intl.DateTimeFormat('en-US', { timeZone, timeZoneName: 'longOffset' })
+    .formatToParts(date).find((x) => x.type === 'timeZoneName')?.value ?? 'GMT';
+  const m = /([+-])(\d{1,2}):?(\d{2})?/.exec(p);
+  if (!m) return 0;
+  return (m[1] === '-' ? -1 : 1) * (Number(m[2]) * 60 + Number(m[3] || 0));
+}
+
+// "UTC-6", "UTC+5:30", "UTC"
+export function formatOffset(date, timeZone) {
+  const min = offsetMinutes(date, timeZone);
+  if (min === 0) return 'UTC';
+  const a = Math.abs(min);
+  const mm = a % 60;
+  return `UTC${min < 0 ? '-' : '+'}${Math.floor(a / 60)}${mm ? ':' + String(mm).padStart(2, '0') : ''}`;
+}
+
+// Abreviatura de zona ("CST", "GMT+9"…)
+export function zoneAbbr(date, timeZone) {
+  return new Intl.DateTimeFormat('en-US', { timeZone, timeZoneName: 'short' })
+    .formatToParts(date).find((x) => x.type === 'timeZoneName')?.value ?? '';
+}
+
+// Texto buscable: nombre, id IANA, UTC+X, GMT+X, +X, +HH:MM y abreviatura.
+export function searchText(city, date = new Date()) {
+  const min = offsetMinutes(date, city.timeZone);
+  const a = Math.abs(min), s = min < 0 ? '-' : '+';
+  const h = Math.floor(a / 60), mm = String(a % 60).padStart(2, '0');
+  const forms = min === 0
+    ? ['utc', 'gmt', 'z', '+0', '-0', '+00:00']
+    : [`utc${s}${h}`, `gmt${s}${h}`, `${s}${h}`, `utc${s}${String(h).padStart(2, '0')}:${mm}`, `gmt${s}${String(h).padStart(2, "0")}:${mm}`, `${s}${String(h).padStart(2, '0')}:${mm}`, `${s}${String(h).padStart(2, '0')}${mm}`,
+       ...(a % 60 ? [`utc${s}${h}:${mm}`, `gmt${s}${h}:${mm}`, `${s}${h}:${mm}`] : [])];
+  return [city.name, city.timeZone, city.timeZone.replace(/_/g, ' '), zoneAbbr(date, city.timeZone), ...forms]
+    .join(' ').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+}
+
+export function matchesQuery(city, query, date = new Date()) {
+  const q = query.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().trim().replace(/\s+/g, ' ');
+  if (!q) return true;
+  const hay = searchText(city, date);
+  return hay.includes(q) || hay.includes(q.replace(/ /g, ''));
 }

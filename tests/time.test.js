@@ -75,3 +75,24 @@ describe('selección y catálogo', () => {
     expect(daylight(new Date('2024-01-15T00:00:00Z'), 'UTC')).toBeCloseTo(0);
   });
 });
+
+import { formatOffset, matchesQuery, CATALOG as CAT } from '../src/time.js';
+describe('zonas horarias', () => {
+  const jan = new Date('2024-01-15T12:00:00Z');
+  const by = (id) => CAT.find((c) => c.id === id);
+  it('formatea desfases UTC', () => {
+    expect(formatOffset(jan, 'America/Mexico_City')).toBe('UTC-6');
+    expect(formatOffset(jan, 'Asia/Kolkata')).toBe('UTC+5:30');
+    expect(formatOffset(jan, 'Europe/London')).toBe('UTC');
+  });
+  it('busca por notación UTC', () => {
+    expect(matchesQuery(by('tokyo'), 'UTC+9', jan)).toBe(true);
+    expect(matchesQuery(by('tokyo'), 'gmt+09:00', jan)).toBe(true);
+    expect(matchesQuery(by('tokyo'), '+9', jan)).toBe(true);
+    expect(matchesQuery(by('tokyo'), 'utc-6', jan)).toBe(false);
+    expect(matchesQuery(by('mumbai'), 'utc+5:30', jan)).toBe(true);
+    expect(matchesQuery(by('mexico-city'), 'utc -6', jan)).toBe(true);
+    expect(matchesQuery(by('madrid'), 'asia', jan)).toBe(false);
+    expect(matchesQuery(by('tokyo'), 'asia/tokyo', jan)).toBe(true);
+  });
+});

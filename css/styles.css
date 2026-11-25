@@ -50,6 +50,7 @@ main { min-height: 0; min-width: 0; padding: 0; display: flex; }
 .tile h2 { margin: 0; font-family: var(--font-display); font-size: clamp(0.8rem, 8cqmin, 2rem); font-weight: 400; letter-spacing: .04em; text-transform: uppercase; color: var(--accent-hover); position: absolute; top: clamp(.6rem, 4cqmin, 1.6rem); left: clamp(.6rem, 4cqmin, 1.6rem); max-width: 75%; }
 .clock { display: block; font-family: var(--font-mono); font-size: clamp(1.4rem, min(21cqw, 40cqh), 12rem); font-weight: 800; letter-spacing: -.04em; font-variant-numeric: tabular-nums; line-height: 1.1; }
 .date { margin: 0; font-size: clamp(0.7rem, 7cqmin, 1.4rem); opacity: .75; text-transform: capitalize; }
+.zone { margin: 0; font-family: var(--font-mono, monospace); font-size: clamp(0.6rem, 5cqmin, 1.1rem); opacity: .7; }
 .tile .remove { position: absolute; bottom: 10px; right: 8px; z-index: 1; width: 1.5rem; height: 1.5rem; padding: 0; border-radius: 0; border: 1px solid var(--line-strong); background: rgba(0,0,0,.45); color: #fff; cursor: pointer; opacity: 0; transition: opacity .15s; }
 .tile:hover .remove, .tile .remove:focus-visible { opacity: 1; }
 .empty { position: absolute; inset: 0; z-index: 0; display: grid; place-items: center; color: var(--muted); pointer-events: none; }

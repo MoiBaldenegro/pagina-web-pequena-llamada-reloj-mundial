@@ -1,9 +1,8 @@
-import { CATALOG, DEFAULT_IDS, getCityTimes, citiesFromIds, parseSelection } from '../src/time.js';
+import { CATALOG, DEFAULT_IDS, getCityTimes, citiesFromIds, parseSelection, formatOffset, matchesQuery } from '../src/time.js';
 
 const KEY = 'reloj-mundial:seleccion';
 const $ = (id) => document.getElementById(id);
 const heatmap = $('heatmap');
-const norm = (s) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
 
 function load() {
   try {
@@ -43,11 +42,12 @@ function buildTiles() {
     const h = document.createElement('h2'); h.textContent = c.name;
     const tm = document.createElement('time'); tm.className = 'clock'; tm.textContent = '--:--:--';
     const d = document.createElement('p'); d.className = 'date';
+    const z = document.createElement('p'); z.className = 'zone';
     const x = document.createElement('button');
     x.className = 'remove'; x.type = 'button'; x.textContent = '✕';
     x.setAttribute('aria-label', `Quitar ${c.name}`);
     x.addEventListener('click', () => toggle(c.id));
-    t.append(h, tm, d, x);
+    t.append(h, tm, d, z, x);
     heatmap.append(t);
   }
   $('empty').hidden = selected.length > 0;
@@ -64,6 +64,7 @@ function render() {
     tile.style.setProperty('--d', c.daylight.toFixed(3));
     tile.querySelector('.clock').textContent = c.time;
     tile.querySelector('.date').textContent = c.date;
+    tile.querySelector('.zone').textContent = `${c.offset} · ${c.timeZone.replace(/_/g, ' ')}`;
   }
 }
 
@@ -75,15 +76,16 @@ function toggle(id) {
 }
 
 function renderList() {
-  const q = norm($('search').value.trim());
+  const q = $('search').value;
+  const now = new Date();
   const ul = $('list');
   ul.replaceChildren();
-  for (const c of CATALOG.filter((c) => norm(c.name).includes(q))) {
+  for (const c of CATALOG.filter((c) => matchesQuery(c, q, now))) {
     const on = selected.includes(c.id);
     const li = document.createElement('li');
     const info = document.createElement('div');
     info.textContent = c.name;
-    const sm = document.createElement('small'); sm.textContent = c.timeZone;
+    const sm = document.createElement('small'); sm.textContent = `${formatOffset(now, c.timeZone)} · ${c.timeZone}`;
     info.append(sm);
     const b = document.createElement('button');
     b.type = 'button'; b.className = `btn ${on ? 'on' : 'add'}`;

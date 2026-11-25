@@ -24,3 +24,4 @@ Agrega entradas cortas y fechadas; no borres las de otros salvo que ya no sean c
 - 2026-11-25 — #15: revisión de backlog vacío; 14 tests verdes, productionReady true, sin nextIssues. Nota: docs/vision.md aún lista el selector como fuera de alcance, pero #11 lo añadió.
 - 2026-11-25 — #16: layout a pantalla completa sin scroll: rail lateral (título gigante + botón) + heatmap de mosaicos con reloj enorme abajo-izquierda, número 01..04 (CSS counter) y barra de luz de día (--d). En vertical/móvil el rail pasa a barra superior. Todo CSS en css/styles.css; JS sin cambios.
 - 2026-11-25 — #17: revisión; 14 tests verdes. Solo queda #18 (zona horaria) abierto; sin nextIssues nuevos.
+- 2026-11-25 — #18: offsets calculados con Intl longOffset (varían con DST). Búsqueda en matchesQuery (src/time.js); tiles muestran .zone.
