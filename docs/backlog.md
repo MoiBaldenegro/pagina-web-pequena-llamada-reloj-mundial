@@ -14,3 +14,6 @@ Pages habilitado por el humano; 10 tests verdes; README con instalar/correr/prob
 
 ## Estado (2026-11-25, issue #10)
 Revisión repetida: 10 tests verdes, MVP completo, sin bugs ni p0. productionReady: true, sin issues nuevos.
+
+## Estado (2026-11-25, issue #15)
+Revisión: 14 tests verdes; MVP + selector de ciudades (#11) y estilos MXVI (#13) completos; sin bugs ni p0. productionReady: true, sin issues nuevos.

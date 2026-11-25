@@ -1,4 +1,3 @@
 # Handoff
-
-- #13: css/styles.css reescrito con tokens del MXVI design system (fuentes woff2 locales en css/fonts/, esquinas rectas, acento ciruela). Tests verdes (14). Sin cambios de HTML/JS.
-- Siguiente: verificar visualmente en Pages (chromium headless) y el run de Pages (#14).
+- #15: revisión del producto. 14 tests verdes, MVP completo, sin bugs ni p0. Marcado productionReady; sin nextIssues.
+- Siguiente: nada pendiente. Opcional: alinear docs/vision.md con el selector de ciudades (#11).
